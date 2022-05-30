@@ -1,0 +1,112 @@
+/* *{
+    box-sizing: border-box;
+} */
+body{
+    background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
+    background-blend-mode: darken;
+    }
+    
+.contain_questions
+{
+    width: 30%;
+    height: 500px;
+    background-color: white;
+    margin: auto;
+    padding: 40px;
+    margin-top: 10px;
+    /* overflow: hidden;
+    outline: none; */
+}
+
+#bar
+{
+width: 1%;
+height: 3%;
+background-color: green;
+color: white;
+font-weight: bold;
+}
+
+.element
+{   margin-top:24px ;
+    border: 1px solid rgb(92, 87, 87);
+    width: 400px;
+    height: 40px;
+    border-radius: 3px;
+    padding-top: 15px;
+    accent-color: green;
+    cursor: pointer;
+}
+.element :checked
+{
+    border-color: green;
+    border: solid 3px;
+}
+.answer
+{
+    cursor: pointer;
+    font-size: 20px;
+    accent-color: green;
+}
+
+#question
+{
+ text-align: center;
+}
+.contain_button
+{
+display: flex;
+justify-content: space-between;
+margin-top: 5%;
+}
+
+#submit
+{
+    color: white;
+    background-color: green;
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: none;
+    box-shadow: 3px 3px 3px rgb(194, 191, 191);
+    font-size: 17px;
+    cursor: pointer;
+}
+#Quitter
+{
+    color: white;
+    background-color: rgb(245, 87, 39);
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    border: none;
+    box-shadow: 3px 3px 3px rgb(194, 191, 191);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#progression
+{   justify-content: center;
+    width: 105%;
+}
+.timer_prog
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.accueil
+{
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    color:white;
+    background-color: rgb(11, 92, 241);
+    border: none;
+    box-shadow: 3px 3px 3px rgb(194, 191, 191);
+    font-size: 17px;
+    cursor: pointer;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="question.css">
+   
+    <title>Document</title>
+</head>
+<body>
+    <div class="contain_questions">
+            <form action="" id="form_contain_question">
+              <p id="question">Question Text</p>
+
+
+
+              
+                 <div class="progress">
+                    <div class="timer_prog">
+                       <p>Question 1/15</p>
+                       <p>60</p>
+                    </div> 
+                      <label for="file" class="bar_progress"></label>
+                      <progress id="progression" value="50" max="100">76%</progress>
+                    
+                </div> 
+
+                <div class="element">
+                
+                    <input type="radio" id="a" name="answer"  class="answer">
+                    <label for="a" id="a_text">Answer</label>
+                
+                </div>
+                <div class="element">
+            
+                      <input type="radio" id="b" name="answer"  class="answer">
+                      <label for="b" id="b_text">Answer</label>
+                
+                  </div>
+                  <div class="element">
+                
+                      <input type="radio" id="c" name="answer"  class="answer">
+                      <label for="c" id="c_text">Answer</label>
+                 
+                  </div>
+                  <div class="element">
+                   
+                      <input type="radio" id="d" name="answer"  class="answer">
+                      <label for="d" id="d_text">Answer</label>
+            
+                  </div>
+
+              <div class="contain_button">
+                <input type="submit" name="Quitter" value="Quitter" id="Quitter">
+                <button id="submit">suivant</button>
+              </div>
+            </form>
+    </div>
+</body>
+
+<script src="question.js"></script>
+</html>
