@@ -1,5 +1,5 @@
 /* *{
-    box-sizing: border-box;
+    box-sizing: content-box;
 } */
 body{
     background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
@@ -7,13 +7,14 @@ body{
     }
     
 .contain_questions
-{
+{ 
     width: 30%;
     height: 500px;
     background-color: white;
     margin: auto;
     padding: 40px;
     margin-top: 10px;
+    box-sizing: content-box;
     /* overflow: hidden;
     outline: none; */
 }
@@ -89,7 +90,7 @@ margin-top: 5%;
 
 #progression
 {   justify-content: center;
-    width: 105%;
+    width: 99%;
 }
 .timer_prog
 {
@@ -97,6 +98,7 @@ margin-top: 5%;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .accueil
 {
     padding-left: 13%;
@@ -109,4 +111,70 @@ margin-top: 5%;
     box-shadow: 3px 3px 3px rgb(194, 191, 191);
     font-size: 17px;
     cursor: pointer;
+}
+.progress_container
+{
+    width: 99%;
+    height: 7px;
+    background-color:rgb(238, 243, 236) ;
+    border-radius: 3px;
+}
+.progress_fill
+{
+    width: 50%;
+    height: 100%;
+    background-color: green;
+    border-radius: 3px;
+}
+
+.header_score
+{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100px;
+width: 100%;
+margin-top: 20px; 
+margin-bottom: 20px;
+}
+.score_position
+{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%; 
+}
+#name
+{
+
+font-size: 20px;
+}
+#email
+{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.image_score
+{ 
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%; 
+    margin: auto;
+}
+.button_accueil
+{   display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 13%;
+}
+
+.image_score
+{   
+    width: 150px;
+    height: 150px;
 }

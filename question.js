@@ -175,10 +175,30 @@ document.querySelector('form').addEventListener('submit', (event)=>{
             loadQuiz() 
         } else {
             const quizContainer = document.querySelector('.contain_questions');
+            let name = localStorage.getItem('name');
+            let email = localStorage.getItem('mail');
+            const hasWinTheQuiz = (score/quizData.length) >= 0.5;
             quizContainer.innerHTML = `
-            <h2> vous avez obtenu ${score}/${quizData.length} questions correct </h2>
-
+            <section class="container_score" >
+            <div class="header_score">
+               <strong><p id="name">${name}</p></strong> 
+                <p id="email">${email}</p>
+            </div>
+            <div class="image_score">
+            ${
+                hasWinTheQuiz ?
+                '<img src="succes.png" class="image_score">'
+                : '<img src="echec.png" class="image_score">'
+            }
+               
+            </div>
+                <div class="score_position">
+                <p> <strong>${score}/${quizData.length}</strong>  </p>
+                </div>
+            <div class="button_accueil">
             <button class ="accueil" onclick= "location.href = '/'"> Accueil</button>
+            </div>
+        </section>
             `
         }
     }
