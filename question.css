@@ -1,91 +1,106 @@
-/* *{
+*{
     box-sizing: content-box;
-} */
-body{
+    margin: 0;
+    padding: 0;
+}
+
+#big_container{
     background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
-    background-blend-mode: darken;
-    }
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
     
 .contain_questions
 { 
-    width: 30%;
-    height: 500px;
-    background-color: white;
-    margin: auto;
-    padding: 40px;
-    margin-top: 10px;
-    box-sizing: content-box;
-    /* overflow: hidden;
-    outline: none; */
+    width: 470px;
+    height: 570px;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
 }
 
 #bar
 {
-width: 1%;
-height: 3%;
-background-color: green;
-color: white;
-font-weight: bold;
+    width: 1%;
+    height: 3%;
+    background-color: green;
+    color: white;
+    font-weight: bold;
 }
 
 .element
-{   margin-top:24px ;
+{ 
     border: 1px solid rgb(92, 87, 87);
     width: 400px;
-    height: 40px;
+    height: 30px;
     border-radius: 3px;
-    padding-top: 15px;
     accent-color: green;
     cursor: pointer;
+    width: 400px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    /* TODO */
 }
+
+.element:hover
+{ 
+    border: 1px solid rgb(31, 173, 3);
+    width: 400px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 400px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
 .element :checked
 {
     border-color: green;
     border: solid 3px;
 }
 .answer
-{
+{   
     cursor: pointer;
     font-size: 20px;
     accent-color: green;
+    margin: 7px;
 }
 
 #question
 {
- text-align: center;
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 20px;
 }
-.contain_button
-{
-display: flex;
-justify-content: space-between;
-margin-top: 5%;
+.contain_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
 }
 
 #submit
-{
-    color: white;
-    background-color: green;
-    padding-left: 13%;
-    padding-right: 13%;
-    padding-top: 4%;
-    padding-bottom: 4%;
+{   color: white; 
     border: none;
-    box-shadow: 3px 3px 3px rgb(194, 191, 191);
-    font-size: 17px;
-    cursor: pointer;
+     padding: 20px 50px;  
+     background-color: green; 
+     box-shadow: 3px 3px 3px rgb(194, 191, 191);
+     font-size: 17px;
 }
 #Quitter
-{
-    color: white;
-    background-color: rgb(245, 87, 39);
-    padding-left: 13%;
-    padding-right: 13%;
-    padding-top: 4%;
-    padding-bottom: 4%;
+{   color: white;
+    padding: 20px 50px;
     border: none;
+    background-color: orange;
     box-shadow: 3px 3px 3px rgb(194, 191, 191);
     font-size: 17px;
-    cursor: pointer;
 }
 
 #progression
@@ -97,6 +112,7 @@ margin-top: 5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .accueil
@@ -129,14 +145,14 @@ margin-top: 5%;
 
 .header_score
 {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 100px;
-width: 100%;
-margin-top: 20px; 
-margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    margin-top: 20px; 
+    margin-bottom: 20px;
 }
 .score_position
 {
@@ -148,9 +164,9 @@ margin-bottom: 20px;
 }
 #name
 {
-
 font-size: 20px;
 }
+
 #email
 {
     font-size: 20px;
