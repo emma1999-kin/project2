@@ -1,12 +1,12 @@
-*{
+*,*::after,*::before{
     box-sizing: content-box;
     margin: 0;
     padding: 0;
 }
 
-#big_container{
+.big_container{
     background: linear-gradient(90deg, #85F6B8 0%, rgba(142, 217, 235, 0.85) 99.84%);
-    height: 100vh;
+    height: 105vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,14 +14,20 @@
 }
     
 .contain_questions
-{ 
-    width: 470px;
-    height: 570px;
+{   max-width: 100%;
+    width: 500px;
+    height: 590px;
     background-color: #FFF;
     display: flex;
     justify-content: center;
+    padding: 5px;
 }
+.container_element
+{
+    padding-left: 3px;
+    padding-right: 3px;
 
+}
 #bar
 {
     width: 1%;
@@ -38,33 +44,29 @@
     height: 30px;
     border-radius: 3px;
     accent-color: green;
-    cursor: pointer;
-    width: 400px;
-    margin-top: 30px;
+    /* cursor: pointer; */
+    margin-top: 25px;
     display: flex;
     align-items: center;
     padding: 10px;
+    padding-left: 5px;
     /* TODO */
 }
 
 .element:hover
 { 
-    border: 1px solid rgb(31, 173, 3);
-    width: 400px;
-    height: 30px;
+    border: 1px solid rgb(22, 90, 8);
     border-radius: 3px;
     cursor: pointer;
-    width: 400px;
-    margin-top: 30px;
     display: flex;
     align-items: center;
 }
 
-.element :checked
+/* .element :checked
 {
     border-color: green;
     border: solid 3px;
-}
+} */
 .answer
 {   
     cursor: pointer;
@@ -93,14 +95,16 @@
      background-color: green; 
      box-shadow: 3px 3px 3px rgb(194, 191, 191);
      font-size: 17px;
+     cursor: pointer;
 }
-#Quitter
+#Reset
 {   color: white;
     padding: 20px 50px;
     border: none;
     background-color: orange;
     box-shadow: 3px 3px 3px rgb(194, 191, 191);
     font-size: 17px;
+    cursor: pointer;
 }
 
 #progression
@@ -109,18 +113,33 @@
 }
 .timer_prog
 {
-    display: flex;
+    display:flex ;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.question_numero
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 10px;
+
+}
+#num_question
+{
+    font-size: 20px;
 }
 
 .accueil
-{
-    padding-left: 13%;
-    padding-right: 13%;
-    padding-top: 4%;
-    padding-bottom: 4%;
+{   margin-top: 30px;
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     color:white;
     background-color: rgb(11, 92, 241);
     border: none;
@@ -128,20 +147,76 @@
     font-size: 17px;
     cursor: pointer;
 }
-.progress_container
+/* .progress_count_bar
 {
-    width: 99%;
-    height: 7px;
-    background-color:rgb(238, 243, 236) ;
+    position: absolute;
+    width: 430px;
+    height: 10px;
+    background: green;
     border-radius: 3px;
 }
+.divtimeLet
+{
+    float: right;
+    background: lightgray;
+    height: 10px;
+  
+} */
+
+#myProgress {
+    width: 100%;
+    height: 20px;
+    position: relative;
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  
+  #myBar {
+    background-color: #4CAF50;
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    border-radius: 10px;
+
+  }
+/* .progress_container
+{
+    width: 430px;
+    height: 25px;
+    background-color:#FFF ;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+.progress_container::before
+{  content: attr(data-label);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: .5em;
+    top: .5em;
+    bottom: .5em;
+    width: calc(var(--width,0)*1%);
+    min-width: 2rem;
+    max-width: calc(100% - 1em);
+    background-color: green; 
+    border-radius: .5em;
+    height: 1em;
+}   
 .progress_fill
 {
-    width: 50%;
+    width: 70%;
     height: 100%;
     background-color: green;
     border-radius: 3px;
 }
+.progress_text
+{
+    position: absolute;
+    top: 0;
+    right: 5px;
+
+} */
 
 .header_score
 {
@@ -151,7 +226,7 @@
     align-items: center;
     height: 100px;
     width: 100%;
-    margin-top: 20px; 
+    margin-top: 40px; 
     margin-bottom: 20px;
 }
 .score_position
@@ -160,25 +235,29 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-top: 10%; 
+    margin-top: 15%; 
+    margin-bottom: 10%;
 }
 #name
 {
 font-size: 20px;
+margin-top: 50px;
+margin-bottom: 30px;
 }
 
 #email
 {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .image_score
-{ 
+{   width: 150px;
+    height: 150px;
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-top: 10%; 
+    margin-top: 14%; 
     margin: auto;
 }
 .button_accueil
@@ -186,11 +265,5 @@ font-size: 20px;
     text-align: center;
     align-items: center;
     justify-content: center;
-    margin-top: 13%;
-}
-
-.image_score
-{   
-    width: 150px;
-    height: 150px;
+    margin-top: 15%;
 }

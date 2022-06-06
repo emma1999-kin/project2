@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="big_container">
+    <div class="big_container">
         <div class="contain_questions">
             <form action="" id="form_contain_question">
               <p id="question">Question Text</p>
@@ -17,20 +17,20 @@
               
                  <div class="progress">
                     <div class="timer_prog">
-                       <p>Question 1/15</p>
-                       <p>60</p>
+                       <div class="question_numero">
+                            <!-- <p>Question<p>1</p>/<p>15</p></p> -->
+                       </div>
+                       <div class="time"></div>
                     </div> 
                       <label for="file" class="bar_progress"></label>
 
-                      <!-- <progress id="progression" value="50" max="100">76%</progress> -->
-                    <div class="progress_container">
-                        <div class="progress_fill">
-                            <span class="progress_text"></span>
-                        </div>
-                    </div>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                      </div>
+                    
                 </div> 
-
-                <div class="element">
+                <div class="container_element">
+                    <div class="element">
                 
                     <input type="radio" id="a" name="answer"  class="answer">
                     <label for="a" id="a_text">Answer</label>
@@ -54,15 +54,17 @@
                       <label for="d" id="d_text">Answer</label>
             
                   </div>
+                </div>
+                
 
               <div class="contain_button">
-                <button id="Quitter">Quitter</button>
+                <button id="Reset">Quitter</button>
                 <button id="submit">suivant</button>
               </div>
             </form>
     </div>
     </div>
 </body>
-
+<script src="progbar.js"></script>
 <script src="question.js"></script>
 </html>
