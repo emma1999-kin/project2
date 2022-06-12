@@ -1,3 +1,5 @@
+
+
 // document.querySelector('.btn').addEventListener('click', moveBar);
 // const moveBar = () => {
 //     const bar = document.getElementById('bar');
@@ -139,54 +141,69 @@ const quizData = [
 
 const answerEls = document.querySelectorAll('.answer')
 const questionEl = document.getElementById('question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
+const a_text = document.getElementById('a_text');
+const b_text = document.getElementById('b_text');
+const c_text = document.getElementById('c_text');
+const d_text = document.getElementById('d_text');
 const submitBtn = document.getElementById('submit')
 const quitbtn = document.getElementById('Quitter')
 const form2_container = document.querySelector('#form_contain_question');
-const timeCount = form2_container.querySelector('.timer_prog .time');
+const timeCount = form2_container.querySelector('.time');
 let currentQuiz = 0;
 let score = 0;
 let counter;
+let timerId = null;
+
 loadQuiz()
 
 
 function loadQuiz() {
+    
     questionCounter();
-    startTimer(60);
-    deselectAnswers()
-    console.log(currentQuiz)
+    move();
+    deselectAnswers();
     const currentQuizData = quizData[currentQuiz]
     questionEl.innerText = currentQuizData.question
     a_text.innerText = currentQuizData.a
     b_text.innerText = currentQuizData.b
     c_text.innerText = currentQuizData.c
     d_text.innerText = currentQuizData.d
+    
 
 }
 
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
+
+    const previousSelection = document.querySelector('.br-green');
+    if (previousSelection) {
+        previousSelection.classList.remove('br-green');
+    }
 }
 
 function questionCounter() {
     const bottom_counter = form2_container.querySelector('.question_numero');
-    let totalCount = '<p> Question  <p>' + ' ' + (currentQuiz + 1) + '</p>/<p>' + quizData.length + '</p></p>';
+    let totalCount = '<p>Question_ <p>' + (currentQuiz + 1) + '</p>/<p>' + quizData.length + '</p></p>';
     bottom_counter.innerHTML = totalCount;
 }
-
-let timerId = null;
 
 
 function move() {
     const element = document.getElementById("myBar");
     let width = 60;
+    let time = 60;
     if (timerId) clearInterval(timerId);
     timerId = setInterval(frame, 1000);
     function frame() {
-        if (width == 0) {
+        timeCount.textContent = time;
+        time--;
+        questionCounter();
+        if (time == -1) {
+            onNext();
+            clearInterval(counter);
+        }
+        if (width == -1) {
+            onNext();
             clearInterval(timerId);
         } else {
             width--;
@@ -195,27 +212,34 @@ function move() {
     }
 }
 
-function startTimer(time) {
-    if (counter) clearInterval(counter);
-    counter = setInterval(timer, 1000);
-    function timer() {
-        timeCount.textContent = time;
-        time--;
-        questionCounter();
-        if (time <= 0) {
-            clearInterval(counter);
-        }
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    answerEls.forEach(answerE1 => {
+        answerE1.addEventListener('change', (event) => {
+            const previousSelection = document.querySelector('.br-green');
+            if (previousSelection) {
+                previousSelection.classList.remove('br-green');
+            }
+            const element = event.target.parentElement;
+            element.classList.add('br-green');
+        });
+    })
+});
 
-}
 
 function getSelected() {
+    
     let answer
+    // if(!answer)return;
     answerEls.forEach(answerE1 => {
+      
         if (answerE1.checked) {
+            
             answer = answerE1.id
+            move()
         }
-    })
+    });
+
     return answer
 }
 
@@ -261,35 +285,35 @@ document.getElementById('Reset').addEventListener("click", (event) => {
 
 });
 
-document.querySelector('form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    move();
+function onNext() {
+ 
     const answer = getSelected()
+    if(getSelected()){
 
+ 
 
-    if (answer) {
-        if (answer === quizData[currentQuiz].correct) {
-            score = score + 1
+    if (answer === quizData[currentQuiz].correct) {
+        score = score + 1
+    }
+    currentQuiz++
+
+    if (currentQuiz < quizData.length) {
+        loadQuiz()
+
+        if (currentQuiz == quizData.length - 1) {
+            // Dernière question
+            // Selectionne le boutton
+            // btn.textContent = 'Terminer';
+            submitBtn.textContent = 'Terminer';
+
         }
-        currentQuiz++
 
-        if (currentQuiz < quizData.length) {
-            loadQuiz()
-
-            if (currentQuiz == quizData.length-1) {
-                // Dernière question
-                // Selectionne le boutton
-                // btn.textContent = 'Terminer';
-                submitBtn.textContent = 'Terminer';
-                
-            }
-
-        } else {
-            const quizContainer = document.querySelector('.contain_questions');
-            let name = localStorage.getItem('name');
-            let email = localStorage.getItem('mail');
-            const hasWinTheQuiz = (score / quizData.length) >= 0.5;
-            quizContainer.innerHTML = `
+    } else {
+        const quizContainer = document.querySelector('.contain_questions');
+        let name = localStorage.getItem('name');
+        let email = localStorage.getItem('mail');
+        const hasWinTheQuiz = (score / quizData.length) >= 0.5;
+        quizContainer.innerHTML = `
             <section class="container_score" >
             <div class="header_score">
                <strong><p id="name">${name}</p></strong> 
@@ -297,10 +321,9 @@ document.querySelector('form').addEventListener('submit', (event) => {
             </div>
             <div class="image_score">
             ${hasWinTheQuiz ?
-                    '<img src="succes.png" class="image_score">'
-                    : '<img src="echec.png" class="image_score">'
-                }
-               
+                '<img src="succes.png" class="image_score">'
+                : '<img src="echec.png" class="image_score">'
+            }  
             </div>
                 <div class="score_position">
                 <p> <strong>${score}/${quizData.length}</strong>  </p>
@@ -310,6 +333,13 @@ document.querySelector('form').addEventListener('submit', (event) => {
             </div>
         </section>
             `
-        }
     }
+    }
+}
+document.querySelector('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    move();
+     submitBtn.style.backgroundColor="#028a3d7c";
+    onNext();
+   
 })

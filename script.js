@@ -21,6 +21,10 @@ function checkInputs() {
     if (usernameValue === '') {
         setErrorFor(username, "le champ de votre nom ne doit pas etre vide");
         errors = true;
+    }
+    else if(usernameValue.length < 2){
+        setErrorFor(username,"Votre nom doit avoir plus de trois lettres");
+        errors = true;
     } else {
         setSuccessFor(username);
     }
